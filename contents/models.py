@@ -2,6 +2,7 @@ from django.db import models
 
 from tinymce import models as tinymce_models
 from location_field.models.plain import PlainLocationField
+from geoposition.fields import GeopositionField
 
 
 class Content(models.Model):
@@ -42,7 +43,8 @@ class UnitType(models.Model):
 
 class Location(models.Model):
     name = models.TextField()
-    geocode = PlainLocationField(based_fields=['city'], zoom=7)
+    # geocode = PlainLocationField(based_fields=['city'], zoom=7)
+    geocode = GeopositionField()
 
 class Property(models.Model):
     READY = 'RE'

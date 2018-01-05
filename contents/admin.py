@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Content, Property, PropertyImage
+from .models import Content, Property, PropertyImage, Location, UnitType
 
 
 class ContentAdmin(admin.ModelAdmin):
@@ -9,6 +9,12 @@ class ContentAdmin(admin.ModelAdmin):
         'content'
     ]
 admin.site.register(Content, ContentAdmin)
+
+class LocationInline(admin.TabularInline):
+    model = Location
+
+class UnitTypeInline(admin.TabularInline):
+    model = UnitType
 
 class PropertyAdmin(admin.ModelAdmin):
     list_display = [
@@ -25,3 +31,5 @@ class PropertyImageAdmin(admin.ModelAdmin):
         'is_primary'
     ]
 admin.site.register(PropertyImage, PropertyImageAdmin)
+admin.site.register(Location)
+admin.site.register(UnitType)

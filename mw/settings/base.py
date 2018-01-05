@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'contents',
     'tinymce',
-    'location_field.apps.DefaultConfig'
+    'location_field.apps.DefaultConfig',
+    'geoposition'
 ]
 
 MIDDLEWARE = [
