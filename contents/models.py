@@ -54,7 +54,7 @@ class Property(models.Model):
     )
 
     name = models.TextField()
-    completion_statis = models.CharField(
+    completion_status = models.CharField(
         max_length=3,
         choices=COMPLETION_CHOICES,
         default=READY
