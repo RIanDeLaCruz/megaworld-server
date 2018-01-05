@@ -73,3 +73,15 @@ class Property(models.Model):
 
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
+
+class PropertyImage(models.Model):
+    mw_property = models.ForeignKey(
+        'Property',
+        on_delete=models.SET_NULL,
+        null=True,
+        related_name='images'
+    )
+    image = models.FileField()
+    is_primary = models.BooleanField(
+        default=False
+    )
