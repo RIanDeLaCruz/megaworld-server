@@ -43,8 +43,8 @@ class UnitType(models.Model):
 
 class Location(models.Model):
     name = models.TextField()
-    # geocode = PlainLocationField(based_fields=['city'], zoom=7)
-    geocode = GeopositionField()
+    geocode = PlainLocationField(based_fields=['city'], zoom=7)
+    # geocode = GeopositionField()
 
 class Property(models.Model):
     READY = 'RE'
