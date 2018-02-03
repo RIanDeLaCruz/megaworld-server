@@ -43,7 +43,10 @@ class UnitType(models.Model):
 
 class Location(models.Model):
     name = models.TextField()
-    geocode = PlainLocationField(based_fields=['city'], zoom=7)
+    geocode = PlainLocationField(
+        based_fields=['city'],
+        zoom=7,
+        default='14.5513982,121.0510432')
     # geocode = GeopositionField()
 
 class Property(models.Model):
