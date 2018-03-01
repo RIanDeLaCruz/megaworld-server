@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from contents.views import ChikkaView
+from contents.views import ChikkaView, ProjectView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^send_sms', ChikkaView.as_view())
+    url(r'^send_sms', ChikkaView.as_view()),
+    url(r'^projects', ProjectView.as_view()),
 ]
