@@ -4,7 +4,6 @@ from rest_framework.response import Response
 from rest_framework import status
 import requests
 import datetime
-import secrets
 import sys, urllib
 
 
