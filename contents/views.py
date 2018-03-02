@@ -38,22 +38,25 @@ class ProjectView(APIView):
         names = [project['title']['rendered'] for project in data]
         ids = [project['id'] for project in data]
 
+        print(data[0]['acf']['unit_layout'][0]['unit_layout_name'])
+
         projects = [{
                 'id': project['id'],
                 'title': project['title']['rendered'],
-                'acf': project['acf'],
-                'status': 'Preselling' if 6 in project['categories'] else 'Ready'
+                'status': 'Preselling' if 6 in project['categories'] else 'Ready',
+                'unit_layouts': [layout.get('unit_layout_name') for layout in
+                    project['acf'].get('unit_layout')],
+                'location': project['acf'].get('location')
             } for project in data
         ]
 
-        project_query = request.GET.get('project')
+        project_query = request.GET.get('unit_type')
         status_query = request.GET.get('status')
 
         if project_query != None or status_query != None:
             projects = [
                 project for project in projects
-                if project['title'] == project_query or
-                project['status'] == status_query
+                if project['status'] == status_query
             ]
 
         return Response(projects, status=status.HTTP_200_OK)
