@@ -56,7 +56,8 @@ class ProjectView(APIView):
         if project_query != None or status_query != None:
             projects = [
                 project for project in projects
-                if project['status'] == status_query
+                if project['status'] == status_query and
+                project_query in project['unit_layout']
             ]
 
         return Response(projects, status=status.HTTP_200_OK)
