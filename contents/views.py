@@ -12,9 +12,10 @@ class ChikkaView(APIView):
 
         api_key = 'b30ae54fd061de0faa02582e765b52a8'
 
-        message = "From {}:\n\
+        message = "From {}, {}:\n\
         Regarding: {} \n\
-        {}".format(request.POST['contact_number'], request.POST['property'], request.POST['message'])
+        {}".format(request.POST['contact_number'], request.POST['name'],
+                request.POST['property'], request.POST['message'])
         print ( message )
 
         params = (
