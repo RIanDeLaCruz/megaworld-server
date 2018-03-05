@@ -47,7 +47,7 @@ class ProjectView(APIView):
                 'unit_layouts': [layout.get('unit_layout_name') for layout in
                     project['acf'].get('unit_layout')],
                 'location': project['acf'].get('location'),
-                'link': project['_links'].get('self')[0]
+                'link': project['_links'].get('self')[0].get('href')
             } for project in data
         ]
 
