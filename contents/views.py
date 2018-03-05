@@ -46,7 +46,8 @@ class ProjectView(APIView):
                 'status': 'Preselling' if 6 in project['categories'] else 'Ready',
                 'unit_layouts': [layout.get('unit_layout_name') for layout in
                     project['acf'].get('unit_layout')],
-                'location': project['acf'].get('location')
+                'location': project['acf'].get('location'),
+                'link': project['_links'].get('self')[0]
             } for project in data
         ]
 
