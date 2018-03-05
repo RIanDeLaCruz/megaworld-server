@@ -21,7 +21,7 @@ class ChikkaView(APIView):
         params = (
                 ('apikey', api_key),
                 ('message', message),
-                ('number', '09267398210')
+                ('number', '09178831588')
         )
 
         path = 'https://semaphore.co/api/v4/messages?' + urllib.parse.urlencode(params)
